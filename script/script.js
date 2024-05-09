@@ -44,4 +44,5 @@ function newTask(event)
     }
 
     event.preventDefault();
+    
 }
