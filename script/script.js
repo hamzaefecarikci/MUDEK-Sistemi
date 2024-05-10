@@ -46,3 +46,19 @@ function newTask(event)
     event.preventDefault();
     
 }
+
+document.querySelector("#btnDersEkle").addEventListener("click",addLesson);
+
+function addLesson()
+{
+    let dersValue = document.querySelector("#floatingSelectDers").value;
+    if(dersValue == "select")
+    {
+        alert("Lütfen Ders Seçimi Yapınız")
+    }
+    
+    else
+    {
+        document.querySelector("#seciliDers").value = dersValue;
+    }
+}

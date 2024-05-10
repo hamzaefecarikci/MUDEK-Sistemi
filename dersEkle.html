@@ -15,18 +15,24 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+
+          <!-- Nav' ın header kısmı -->
           <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasNavbarLabel">MÜDEK Sistemi</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
+
+          <!-- Nav' ın body kısmı -->
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="dersEkle.html">Ders Ekleme</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="ders-tablo.html">Değerlendirme Tablosu</a>
               </li>
+
+          <!-- Nav' ın dropdown kısmı -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Dropdown
@@ -78,7 +84,8 @@
               <div class="col">
                   <div class="form-floating mt-3">
                       <select id="floatingSelectDers" class="form-select" aria-label="Floating label select example">
-                          <option selected>Ders Seçim</option>
+                          <option value="select" selected>Ders Seçim</option>
+                          <!-- <option>Yazılım Tasarımı ve Mimarisi</option> -->
                       </select>
                       <label for="floatingSelectDers"> Ders Seçiniz</label>
                   </div>
@@ -96,7 +103,7 @@
       <div class="row">
         <div class="input-group">
           <span class="input-group-text fs-5 col-2">Seçilen Ders:</span>
-          <input type="text" class="input-group-text col"  aria-label="With textarea" readonly value="">
+          <input type="text" id="seciliDers" class="input-group-text col-3 fs-5"  aria-label="With textarea" readonly value="">
         </div>
     
     <div class="container mt-4">
@@ -113,7 +120,7 @@
     <form>
         <div class="input-group">
             <input type="text" id="textTaskName" class="form-control">
-            <button type="submit" class="btn btn-primary" id="btnAddNewTask">
+            <button type="submit" class="btn btn-info" id="btnAddNewTask">
                 Ekle
             </button>
         </div>
@@ -124,7 +131,11 @@
     <ol id="task-list" class="list-group list-group-numbered"></ol>
 </div>
 
-
+<div class="container d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+    <button class="btn btn-info  mt-4">
+    <a style="text-decoration: none; color: black;" href="ders-tablo.html">Devam Et</a> 
+    </button>
+</div>
 
 
     <script src="script/script.js"></script>
