@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import conn from './db.js';
+import pageRoute from './routes/pageRoute.js'
 
 dotenv.config();
 
@@ -10,8 +11,8 @@ conn();
 const app = express();
 const port = 3000;
 
-app.get('/', (req, res) => res.render('giris_tercihi'));
-app.get('/dersEkle',(req, res) => res.render('dersEkle'));
+//routes
+app.use('/', pageRoute)
 
 //ejs template engine
 app.set('view engine', 'ejs');
