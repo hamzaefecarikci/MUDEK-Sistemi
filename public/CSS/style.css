@@ -1,0 +1,50 @@
+*{margin: 0; padding: 0;}
+
+body{box-sizing: border-box;}
+
+.lesson-box.active{
+    opacity: 1;
+    pointer-events: auto;
+
+    position: absolute;
+    left: 13%;
+    top: 10%;
+}
+
+.lesson-box{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card-header span
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tablo-box
+{
+    opacity: 0;
+    pointer-events: none;
+
+}
+
+.tablo-box.active{
+    opacity: 1;
+    pointer-events: auto;
+
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
+
+table input
+{
+    width: 100%;
+}
+
+#ogrenimCiktisi
+{
+    width: 5%;
+}
