@@ -2,7 +2,7 @@
 
 body{box-sizing: border-box;}
 
-.lesson-box.active{
+.card.lesson-box{
     opacity: 1;
     pointer-events: auto;
 
@@ -11,9 +11,9 @@ body{box-sizing: border-box;}
     top: 10%;
 }
 
-.lesson-box{
-    opacity: 0;
-    pointer-events: none;
+.card.lesson-box.hidden
+{
+    display: none;
 }
 
 .card-header span
@@ -23,20 +23,18 @@ body{box-sizing: border-box;}
     justify-content: center;
 }
 
-.tablo-box
+.degerlendirme.hidden
 {
-    opacity: 0;
-    pointer-events: none;
-
+    display: none;
 }
 
-.tablo-box.active{
-    opacity: 1;
-    pointer-events: auto;
-
-    position: absolute;
-    top: 40%;
-    left: 40%;
+.degerlendirme
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-left: 11%;
 }
 
 table input
@@ -48,3 +46,4 @@ table input
 {
     width: 5%;
 }
+
