@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="tr-tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/CSS/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>MUDEK-Ders Ekleme Sayfası</title>
+</head>
+<body id="dersEkleBody">
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+
+          <!-- Nav' ın header kısmı -->
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">MÜDEK Sistemi</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+
+          <!-- Nav' ın body kısmı -->
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="dersEkle.html">Ders Ekleme</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="ders-tablo.html">Değerlendirme Tablosu</a>
+              </li>
+
+          <!-- Nav' ın dropdown kısmı -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#"></a></li>
+                  <li><a class="dropdown-item" href="#"></a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#"></a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="card lesson-box m-3 w-75">
+      <div class="card-header">
+        <span class="fs-4">Ders Ekleme Sayfası</span>
+      </div>
+      <div class="container mt-5">
+        <div class="row">
+          <!-- Eğitim Yılı Seçim Ekranı -->
+          <div class="col-6">
+            <div class="form-floating">
+              <select id="floatingSelect" class="form-select" aria-label="Floating label select example">
+                <option selected>Yıl Bilgisi Seçiniz</option>
+                <option value="1">2023-2024</option>
+                <option value="2">2022-2023</option>
+                <option value="3">2021-2022</option>
+              </select>
+              <label for="floatingSelect">Eğitim Öğretim Yılını Seçiniz</label>
+            </div>
+          </div>
+  
+            <!-- Donem Seçim Ekranı -->
+          <div class="col-6">
+            <div class="form-floating">
+              <select id="floatingSelectDonem" class="form-select" aria-label="Floating label select example">
+                <option selected>Dönem Seç</option>
+                <option value="guz">Güz Dönemi</option>
+                <option value="bahar">Bahar Dönemi</option>
+              </select>
+              <label for="floatingSelectDonem"> Dönemi Seçiniz</label>
+            </div>
+          </div>
+  
+              <!-- Ders Seçim Ekranı -->
+          <div class="input-group">
+            <div class="col">
+              <div class="form-floating mt-3">
+                <select id="floatingSelectDers" class="form-select dersSecim" aria-label="Floating label select example">
+                  <option value="select" selected>Ders Seçim</option>
+                    <option>Yazılım Tasarımı ve Mimarisi</option>
+                </select>
+                <label for="floatingSelectDers"> Ders Seçiniz</label>
+              </div>
+            </div>
+    
+                <!-- Ders Eklemek İçin Button -->
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+              <button class="btn btn-info p-2 ms-2" id="btnDersEkle">Ders Seç</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="container mt-5">
+        <div class="row">
+          <div class="input-group">
+            <span class="input-group-text fs-5 col-2">Seçilen Ders:</span>
+            <input type="text" id="seciliDers" class="input-group-text col-3 fs-5"  aria-label="With textarea" readonly value="">
+          </div>
+      
+          <div class="container mt-4">
+            <label for="formFile" class="form-label"> Ders Dosyasini Seç</label>
+            <input type="file" id="formFile" class="form-control">
+          </div>
+        </div>
+  
+        <div class="card-header mt-5">
+          <span class="fs-4">Öğrenme Çıktıları</span>
+        </div>
+        
+        <table class="table table-secondary table-bordered">
+          <tr>
+            <th>Öğrenim Çıktıları</th>
+            <th>Anahtar Kelimeler (boş bırakabilirsiniz)</th>
+            <th>Tanım</th>
+          </tr>
+          
+          <tr>
+            <td id="ogrenimCiktisi">Ö-1</td>
+            <td><input type="text" class="form-control"></td>
+            <td><input type="text" class="form-control"></td>
+          </tr>
+          <tr>
+            <td id="ogrenimCiktisi">Ö-2</td>
+            <td><input type="text" class="form-control"></td>
+            <td><input type="text" class="form-control"></td>
+          </tr>
+          <tr>
+            <td id="ogrenimCiktisi">Ö-3</td>
+            <td><input type="text" class="form-control"></td>
+            <td><input type="text" class="form-control"></td>
+          </tr>
+          <tr>
+            <td id="ogrenimCiktisi">Ö-4</td>
+            <td><input type="text" class="form-control"></td>
+            <td><input type="text" class="form-control"></td>
+          </tr>
+          <tr>
+            <td id="ogrenimCiktisi">Ö-5</td>
+            <td><input type="text" class="form-control"></td>
+            <td><input type="text" class="form-control"></td>
+          </tr>
+          <tr>
+            <td id="ogrenimCiktisi">Ö-6</td>
+            <td><input type="text" class="form-control"></td>
+            <td><input type="text" class="form-control"></td>
+          </tr>
+          <tr>
+            <td id="ogrenimCiktisi">Ö-7</td>
+            <td><input type="text" class="form-control"></td>
+            <td><input type="text" class="form-control"></td>
+          </tr>
+          <tr>
+            <td id="ogrenimCiktisi">Ö-8</td>
+            <td><input type="text" class="form-control"></td>
+            <td><input type="text" class="form-control"></td>
+          </tr>
+        </table>
+
+        <div class="container d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+          <button class="btn btn-info btnDevam my-4">Devam Et</button>
+        </div>
+      </div>
+    </div>
+
+    <table class="table table-bordered table-success degerlendirme w-75 hidden">  
+      <th>
+        <td></td>
+        <td><button class="btn p1">P-1</button></td>
+        <td><button class="btn p2">P-2</button></td>
+        <td><button class="btn p3">P-3</button></td>
+        <td><button class="btn p4">P-4</button></td>
+        <td><button class="btn p5">P-5</button></td>
+        <td><button class="btn p6">P-6</button></td>
+        <td><button class="btn p7">P-7</button></td>
+        <td><button class="btn p8">P-8</button></td>
+        <td><button class="btn p9">P-9</button></td>
+        <td><button class="btn p10">P-10</button></td>
+        <td><button class="btn p11">P-11</button></td>
+        <td><button class="btn p12">P-12</button></td>
+      </th>
+
+      <tr>
+        <td>Ö-1</td>
+        <td></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+      </tr>
+      <tr>
+        <td>Ö-2</td>
+        <td></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+      </tr>
+      <tr>
+        <td>Ö-3</td>
+        <td></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+      </tr>
+      <tr>
+        <td>Ö-4</td>
+        <td></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+      </tr>
+      <tr>
+        <td>Ö-5</td>
+        <td></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+      </tr>
+      <tr>
+        <td>Ö-6</td>
+        <td></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+      </tr>
+      <tr>
+        <td>Ö-7</td>
+        <td></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+      </tr>
+      <tr>
+        <td>Ö-8</td>
+        <td></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+        <td><input type="number" class="form-control"></td>
+      </tr>
+    </table>
+
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn" id="closeModalBtn">&times;</span>
+          <!-- <table class="table">
+            <tr>
+              <th>Anahtar Kelimeler</th>
+              <th>Tanım</th>
+            </tr>
+  
+            <tr>
+              <td>Matematik, fen bilimleri, mühendislik alanlarında bilgi kullanımı</td>
+              <td>Matematik, fen bilimleri ve ilgili mühendislik disiplinine özgü konularda yeterli bilgi birikimi;
+                bu alanlardaki kuramsal ve uygulamalı bilgileri, karmaşık mühendislik problemlerinin çözümünde kullanabilme becerisi.</td>
+            </tr>
+
+          </table> -->
+        </div>
+      </div>
+
+    <script src="../script/script.js"></script>
+    <script src="../script/ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
